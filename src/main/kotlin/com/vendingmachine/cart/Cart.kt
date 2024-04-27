@@ -1,9 +1,11 @@
 package com.vendingmachine.cart
 
 import com.vendingmachine.models.Item
+import org.springframework.stereotype.Component
 
-class Cart {
-    val list: MutableList<Item> = mutableListOf()
+@Component
+class Cart(val list: MutableList<Item> = mutableListOf()) {
+
 
     fun addToCart(item: Item) {
         list.add(item)

@@ -28,5 +28,4 @@ class DisplayServiceTest {
 
         assertThat(expectedItemList).hasSameElementsAs(itemList)
     }
-
 }
