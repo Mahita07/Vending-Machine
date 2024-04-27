@@ -1,10 +1,10 @@
 package com.vendingmachine.display
 
-import com.vendingmachine.models.Product
 import com.vendingmachine.inventory.Inventory
+import com.vendingmachine.models.Item
 
 class DisplayService(private val inventory: Inventory) {
-    fun viewProducts(): List<Product> {
-        return inventory.productList
+    fun displayItems(): List<Item> {
+        return inventory.itemList
     }
 }

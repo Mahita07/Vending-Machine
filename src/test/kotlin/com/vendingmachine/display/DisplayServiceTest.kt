@@ -1,25 +1,32 @@
 package com.vendingmachine.display
 
 import com.vendingmachine.inventory.Inventory
+import com.vendingmachine.models.Item
 import com.vendingmachine.models.Product
-import org.junit.jupiter.api.Assertions.assertEquals
+import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
+
 
 class DisplayServiceTest {
     @Test
-    fun `viewProducts should display product list`() {
-        val inventory = Inventory(listOf(
-            Product("Lux", 10, 10.0),
-            Product("Lifebouy", 5, 20.0)
-        ))
+    fun `displayProducts should display product list`(): Unit {
+        val expectedItem1 = Item(Product("Lux", 10.0), 1)
+        val expectedItem2 = Item(Product("Lifebouy", 20.0), 1)
+        val expectedItemList =
+            listOf(
+                expectedItem1,expectedItem2
+            )
+        val inventory = Inventory(
+            listOf(
+                expectedItem1, expectedItem2
+            )
+        )
         val displayService = DisplayService(inventory)
 
-        val productList = displayService.viewProducts()
+        val itemList = displayService.displayItems()
 
-        val expectedProductList = listOf(
-            Product("Lux", 10, 10.0),
-            Product("Lifebouy", 5, 20.0)
-            )
-        assertEquals(expectedProductList,productList)
+
+        assertThat(expectedItemList).hasSameElementsAs(itemList)
     }
+
 }

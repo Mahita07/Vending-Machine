@@ -1,6 +1,6 @@
 package com.vendingmachine.inventory
 
-import com.vendingmachine.models.Product
+import com.vendingmachine.models.Item
 
 
-data class Inventory(val productList : List<Product>)
+class Inventory(val itemList: List<Item>)
