@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test
 
 class CostCalculatorTest {
     @Test
-    fun `calculate total cost should calculate total cost of all items present in cart`() {
+    fun `calculate total cost should return correct total cost of all items present in cart`() {
         val calculator = CostCalculator()
         val itemList = listOf(
             Item(Product("Lux", 10.0), 2),
