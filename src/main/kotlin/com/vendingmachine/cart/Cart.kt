@@ -1,7 +1,6 @@
 package com.vendingmachine.cart
 
 import com.vendingmachine.models.Item
-import com.vendingmachine.models.Product
 
 class Cart {
     val list: MutableList<Item> = mutableListOf()

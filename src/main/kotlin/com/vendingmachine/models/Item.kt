@@ -1,4 +1,4 @@
 package com.vendingmachine.models
 
-class Item(val product: Product, val quantity: Int) {
+data class Item(val product: Product, val quantity: Int) {
 }

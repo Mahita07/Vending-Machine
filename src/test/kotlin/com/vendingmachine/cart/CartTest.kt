@@ -17,7 +17,7 @@ class CartTest {
     @Test
     fun `remove from cart should remove item from cart`() {
         val cart = Cart()
-        val item = Item(Product("Lux",10.0),1)
+        val item = Item(Product("Lux", 10.0), 1)
         cart.removeFromCart(item)
         assertThat(cart.list).hasSameElementsAs(mutableListOf())
     }
