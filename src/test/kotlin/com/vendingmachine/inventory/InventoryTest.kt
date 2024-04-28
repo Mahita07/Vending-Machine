@@ -12,11 +12,13 @@ import org.springframework.boot.test.context.SpringBootTest
 @SpringBootTest
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 class InventoryTest(@Autowired val inventory: Inventory) {
-    private lateinit var item : Item
+    private lateinit var item: Item
+
     @BeforeAll
     fun setup() {
-         item = Item(Product("Lux", 10.0), 1)
+        item = Item(Product("Lux", 10.0), 1)
     }
+
     @Test
     fun ` should return true if an item is present in inventory`() {
         val inventory = Inventory(listOf(item))
@@ -33,7 +35,7 @@ class InventoryTest(@Autowired val inventory: Inventory) {
 
         val actualStatus = inventory.itemList.contains(item)
 
-        assertEquals(expectedStatus,actualStatus)
+        assertEquals(expectedStatus, actualStatus)
 
     }
 }
