@@ -5,8 +5,6 @@ import org.springframework.stereotype.Component
 
 @Component
 class Cart(val list: MutableList<Item> = mutableListOf()) {
-
-
     fun addToCart(item: Item) {
         list.add(item)
     }
