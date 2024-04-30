@@ -11,7 +11,7 @@ class CartTest {
         val cart = Cart()
         val item = Item(Product("Lux", 10.0), 1)
         cart.addToCart(item)
-        assertThat(cart.list).hasSameElementsAs(listOf(item))
+        assertThat(cart.itemList).hasSameElementsAs(listOf(item))
     }
 
     @Test
@@ -19,6 +19,6 @@ class CartTest {
         val cart = Cart()
         val item = Item(Product("Lux", 10.0), 1)
         cart.removeFromCart(item)
-        assertThat(cart.list).hasSameElementsAs(mutableListOf())
+        assertThat(cart.itemList).hasSameElementsAs(mutableListOf())
     }
 }

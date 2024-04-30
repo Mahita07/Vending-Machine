@@ -68,9 +68,10 @@ class VendingMachineTest {
             Item(Product("Lifebouy", 30.0), 1)
         ))
         val expectedTotalCost = 50.0
-        `when`(costCalculator.calculateTotalCost(cart.list)).thenReturn(expectedTotalCost)
+        `when`(costCalculator.calculateTotalCost(cart.itemList
+        )).thenReturn(expectedTotalCost)
 
-        val actualTotalCost = vendingMachine.calculateTotalCost(cart.list)
+        val actualTotalCost = vendingMachine.calculateTotalCost(cart.itemList)
 
         assertEquals(expectedTotalCost,actualTotalCost)
 

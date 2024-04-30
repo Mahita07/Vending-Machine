@@ -36,6 +36,5 @@ class InventoryTest(@Autowired val inventory: Inventory) {
         val actualStatus = inventory.itemList.contains(item)
 
         assertEquals(expectedStatus, actualStatus)
-
     }
 }
