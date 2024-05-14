@@ -1,7 +1,7 @@
 package com.vendingmachine.vendingmachine
 
-import com.vendingmachine.calculator.CostCalculator
 import com.vendingmachine.cart.Cart
+import com.vendingmachine.checkout.CheckoutService
 import com.vendingmachine.display.DisplayService
 import com.vendingmachine.models.Item
 import com.vendingmachine.models.Product
@@ -23,13 +23,13 @@ class VendingMachineTest {
     private lateinit var cart: Cart
 
     @Mock
-    private lateinit var costCalculator: CostCalculator
+    private lateinit var checkoutService: CheckoutService
 
     @InjectMocks
     private lateinit var vendingMachine: VendingMachine
 
     @Test
-    fun `displayItems should return items`() {
+    fun `displayItems should return list of items`() {
         val expectedItemList = listOf(
             Item(Product("Lux", 10.0), 2),
             Item(Product("Lifebouy", 30.0), 1)
@@ -62,18 +62,13 @@ class VendingMachineTest {
     }
 
     @Test
-    fun `calculate total cost should calculate cost of all items in cart`() {
-        val cart = Cart(mutableListOf<Item>(
-            Item(Product("Lux", 10.0), 2),
-            Item(Product("Lifebouy", 30.0), 1)
-        ))
-        val expectedTotalCost = 50.0
-        `when`(costCalculator.calculateTotalCost(cart.itemList
-        )).thenReturn(expectedTotalCost)
+    fun `checkout should return cost`() {
+        `when`(checkoutService.checkoutCart()).thenReturn(0.0)
 
-        val actualTotalCost = vendingMachine.calculateTotalCost(cart.itemList)
+        val cost = vendingMachine.checkout()
 
-        assertEquals(expectedTotalCost,actualTotalCost)
+        assertEquals(0.0,cost)
+
 
     }
 }
